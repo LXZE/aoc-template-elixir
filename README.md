@@ -1,21 +1,47 @@
-# Aoc
-
-**TODO: Add description**
+# AOC Elixir Template
 
 ## Installation
+Just cloning this repo and start working on your own solution
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `aoc` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:aoc, "~> 0.1.0"}
-  ]
-end
+## Command
+- Generate template 
+```sh
+mix gen <year> <day>
+```
+- Generate template and downloading the input from AoC (require .env file and aoc cookie session)
+```sh
+mix gen <year> <day> -dl
+# or mix gen <year> <day> --download
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/aoc>.
+- Download input from AoC
+```sh
+mix download <year> <day>
+```
 
+- Run solution on test input
+```sh
+mix aoc.test <year> <day>
+```
+
+- Run solution on actual input
+```sh
+mix aoc.run <year> <day>
+```
+
+## Config with VS Code
+Edit your keyboard shortcut to invoke predefined tasks by adding these config into your `keybindings.json`
+```json
+{
+  "key": "cmd+r", // feel free to change
+  "command": "workbench.action.tasks.runTask",
+  "args": "run test elixir", // must be the same inside `.vscode/tasks.json`
+  "when": "editorLangId == elixir"
+},
+{
+  "key": "cmd+shift+r",
+  "command": "workbench.action.tasks.runTask",
+  "args": "run full elixir",
+  "when": "editorLangId == elixir"
+}
+```
