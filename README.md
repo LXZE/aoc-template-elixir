@@ -22,11 +22,13 @@ mix download <year> <day>
 - Run solution on test input
 ```sh
 mix aoc.test <year> <day>
+# or mix aoc.test lib/solutions/<year>/<day> which is called by .vscode/tasks.json
 ```
 
 - Run solution on actual input
 ```sh
 mix aoc.run <year> <day>
+# or mix aoc.run lib/solutions/<year>/<day> which is called by .vscode/tasks.json
 ```
 
 ## Config with VS Code
