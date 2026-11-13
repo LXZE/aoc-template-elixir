@@ -11,6 +11,7 @@ mix gen <year> <day>
 - Generate template and downloading the input from AoC (require .env file and aoc cookie session)
 ```sh
 mix gen <year> <day> -dl
+# or mix gen <year> <day> -d
 # or mix gen <year> <day> --download
 ```
 

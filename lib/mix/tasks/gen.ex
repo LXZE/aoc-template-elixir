@@ -6,7 +6,7 @@ defmodule Mix.Tasks.Gen do
       - `mix gen 2020 1` -> Create sol.ex and sol_test.ex files in directory lib/solutions/2020/1/
 
     ## Options
-      `-dl | --download` - download input from AoC website to /input/<year>/<day>/input.txt
+      `-d | -dl | --download` - download input from AoC website to /input/<year>/<day>/input.txt
       Note. require .env and session cookie
   """
   @shortdoc "Generate solution file from template"
@@ -17,8 +17,15 @@ defmodule Mix.Tasks.Gen do
   def run(args) do
     Mix.Task.run("app.start")
 
+    # OptionParser only supports single-letter aliases, so `-dl` would be
+    # parsed as `-d -l`. Expand it to the long form before parsing.
+    args = Enum.map(args, fn
+      "-dl" -> "--download"
+      arg -> arg
+    end)
+
     {argv, [year, day], _} = OptionParser.parse(args,
-      aliases: [dl: :download],
+      aliases: [d: :download],
       strict: [download: :boolean]
     )
     IO.puts("Generate template for solving AOC day #{day}/#{year}")

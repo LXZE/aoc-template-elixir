@@ -22,7 +22,7 @@ defmodule Aoc.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:req, "~> 0.4.0"},
+      {:req, "~> 0.7.5"},
       {:dotenv, "~> 3.1.0", only: [:dev, :test]},
     ]
   end
